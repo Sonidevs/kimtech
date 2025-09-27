@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KIMTECH— Phone & Laptop Repair</title>
+  <meta name="description" content="KIMTECH phone and laptop repair. Fast diagnostics, screen replacements, battery swaps, data recovery, and more.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    /* ========= CSS RESET ========= */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;line-height:1.5;-webkit-font-smoothing:antialiased;color:#0f172a;background:#0b1020;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,system-ui}
+    img,svg,video,canvas,audio,iframe,embed,object{display:block;max-width:100%}
+    h1,h2,h3,h4,h5,h6,p{margin:0 0 .75rem}
+    input,button,textarea,select{font:inherit}
+    a{color:inherit;text-decoration:none}
+
+    /* ========= THEME ========= */
+    :root{
+      --bg:#0b1020;
+      --card:#111833;
+      --muted:#94a3b8;
+      --text:yellow;
+      --brand:#7c3aed; /* violet-600 */
+      --brand-2:#06b6d4; /* cyan-500 */
+      --accent:#000; /* green-500 */
+      --danger:#ef4444; /* red-500 */
+      --ring: rgba(124,58,237,.35);
+      --accent-2:#7c3aed;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --color-scheme: dark;
+       --shadow: 0 10px 30px rgba(2,6,23,.45);
+      --container: 1200px;
+    }
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+      background: linear-gradient(180deg,#071022 0%, #071826 60%);
+      color:#e6eef8; -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale; padding:24px;
+    }
+     
+
+    .container{max-width:var(--container);margin-inline:auto;padding:0 1rem}
+    .btn{display:inline-block;padding:.8rem 1.1rem;border-radius:999px;font-weight:600;letter-spacing:.2px;transition:.2s ease;outline:none;border:1px solid transparent}
+    .btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:white}
+    .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .btn-ghost{border-color:#334155;color:var(--text);background:transparent}
+    .btn-ghost:hover{background:#0f172a}
+
+    /* ========= HEADER ========= */
+    header{position:sticky;top:0;z-index:40;background:rgba(11,16,32,.65);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(148,163,184,.15)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
+    .brand{display:flex;gap:.6rem;align-items:center;font-weight:800;letter-spacing:.3px}
+    .logo{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 180deg,var(--brand),var(--brand-2));display:grid;place-items:center;box-shadow:0 6px 18px rgba(124,58,237,.4)}
+    .logo svg{width:20px;height:20px;fill:white}
+    nav ul{display:flex;gap:1.2rem;list-style:none;padding:0;margin:0}
+    nav a{color:var(--muted)}
+    nav a:hover{color:var(--text)}
+
+    /* ========= HERO ========= */
+    .hero {
+  .hero {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: white;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* dark overlay */
+  z-index: -1;
+}
+
+}
+    .hero{position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 10% -10%, rgba(124,58,237,.35), transparent 60%),
+                                  radial-gradient(1100px 600px at 110% -10%, rgba(6,182,212,.35), transparent 60%)}
+    .hero .content{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:4.5rem 0}
+    .badge{display:inline-flex;gap:.45rem;align-items:center;padding:.35rem .6rem;border-radius:999px;border:1px solid rgba(148,163,184,.25);color:var(--muted);font-size:.85rem}
+    .badge svg{width:16px;height:16px}
+    .hero h1{font-size:clamp(2rem,4.3vw,3.2rem);color:var(--text);line-height:1.1;margin:.6rem 0 1rem}
+    .hero p{color:#cbd5e1;max-width:52ch}
+    .cta{margin-top:1.1rem;display:flex;gap:.7rem;flex-wrap:wrap}
+
+    .device-card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
+    .device-card .grid{display:grid;grid-template-columns: 1fr 1fr;gap:1rem}
+    .device{background:var(--card);border-radius:16px;padding:1rem;min-height:150px;border:1px solid rgba(148,163,184,.15)}
+    .device h3{margin-bottom:.25rem;color:var(--text)}
+    .chip{display:inline-block;padding:.25rem .55rem;border:1px solid rgba(148,163,184,.25);border-radius:999px;margin:.25rem .25rem 0 0;color:#cbd5e1;font-size:.8rem}
+
+    /* ========= SECTIONS ========= */
+    section{padding:3.5rem 0}
+    .section-title{font-size:1.8rem;margin-bottom:1rem;color:var(--text)}
+    .muted{color:var(--muted)}
+
+    /* Services */
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+    .card{background:var(--card);border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);padding:1.2rem;transition:.2s;position:relative;overflow:hidden}
+    .card:hover{transform:translateY(-2px)}
+    .card h3{margin:.2rem 0 .3rem}
+    .card p{color:#cbd5e1}
+    .card .price{font-weight:800;color:var(--text);margin-top:.6rem}
+    .ribbon{position:absolute;inset:auto -40px 16px auto;transform:rotate(-18deg);background:linear-gradient(90deg,var(--brand),var(--brand-2));color:white;padding:.3rem 1.8rem;border-radius:999px;font-size:.85rem}
+
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .plan{background:var(--card);border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);padding:1.2rem}
+    .plan h4{margin:0 0 .25rem}
+    .plan ul{list-style:none;padding:0;margin:.6rem 0;display:grid;gap:.35rem;color:#cbd5e1}
+    .plan li{display:flex;gap:.5rem;align-items:flex-start}
+    .plan .amount{font-size:1.6rem;font-weight:900;color:var(--text)}
+
+    /* Process */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .step{background:var(--card);border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);padding:1rem}
+    .step .num{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:white;font-weight:800;margin-bottom:.4rem}
+
+    /* Testimonials */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .quote{background:var(--card);border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);padding:1rem}
+
+    /* FAQ */
+    details{background:var(--card);border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);padding:1rem}
+    details+details{margin-top:.7rem}
+    summary{cursor:pointer;font-weight:700;color:var(--text)}
+    summary::-webkit-details-marker{display:none}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem}
+    .contact .panel{background:var(--card);border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);padding:1rem}
+    label{display:block;color:#cbd5e1;margin:.4rem 0 .2rem}
+    input,textarea{width:100%;padding:.7rem;border-radius:12px;border:1px solid #334155;background:#0f172a;color:var(--text);outline:2px solid transparent;outline-offset:2px}
+    input:focus,textarea:focus{outline-color:var(--ring)}
+    textarea{min-height:120px}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(148,163,184,.15);padding:2rem 0;color:#94a3b8}
+footer {
+  background-color: #203458;
+  color: #eee;
+  padding: 1rem 2rem;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-container p {
+  margin: 0.3rem 0;
+}
+
+.social-icons a {
+  color: #eee;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: yellow; /* Accent color */
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .social-icons {
+    margin-top: 0.5rem;
+  }
+}
+
+    /* ========= RESPONSIVE ========= */
+    @media (max-width: 980px){
+      .hero .content{grid-template-columns:1fr}
+      .device-card .grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr;}
+      .steps{grid-template-columns:1fr 1fr}
+      .testimonials{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+    }
+
+    .container{max-width:1100px;margin:0 auto}
+
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--accent-2));border-radius:12px;display:grid;place-items:center;font-weight:700}
+    .logo svg{width:34px;height:34px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-bottom:28px}
+    .card{background:var(--card);padding:22px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(3,7,18,0.6)}
+    h1{font-size:28px;margin:0 0 6px}
+    p.lead{color:var(--muted);margin:0 0 16px}
+
+    .cta{display:flex;gap:10px}
+    .btn{padding:10px 14px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#041022}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+    .service{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:flex;gap:12px;align-items:center}
+    .service svg{width:34px;height:34px;flex-shrink:0}
+    .service h4{margin:0;font-size:14px}
+    .service p{margin:0;color:var(--muted);font-size:13px}
+
+    .right-hero{display:flex;flex-direction:column;gap:12px}
+    .stats{display:flex;gap:10px}
+    .stat{flex:1;background:var(--glass);padding:12px;border-radius:10px;text-align:center}
+    .stat b{display:block;font-size:18px}
+
+    .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .project{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:10px;border-radius:12px}
+    .project img{width:100%;height:150px;object-fit:cover;border-radius:8px}
+    .project h5{margin:8px 0 4px}
+    .project p{margin:0;color:var(--muted);font-size:13px}
+
+    .contact{display:flex;gap:18px;margin-top:18px}
+    .contact form{flex:1;display:flex;flex-direction:column;gap:8px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:10px;color:inherit}
+
+    /*footer{margin-top:28px;text-align:center;color:var(--muted)}*/
+.testimonial-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* circular photos */
+  object-fit: cover;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.quote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .portfolio{grid-template-columns:repeat(2,1fr)}
+      .services{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      .portfolio{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      nav a{margin-left:8px}
+    }
+
+    /* small helper */
+    .muted{color:var(--muted)}
+
+    /* simple modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,12,0.6)}
+    .modal.show{display:flex}
+    .modal .inner{background:#071022;padding:18px;border-radius:12px;max-width:520px;width:92%}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>
+  <img src="logo.png" alt="Company Logo" style="height: 60px;"><rect x="8" y="10" width="45" height="50" rx="4" fill="white" opacity="0.95"/><rect x="44" y="14" width="14" height="28" rx="2" fill="white" opacity="0.95"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:700"></div>
+          <div class="muted" style="font-size:13px">KIMTECH Phone & Laptop Repair</div>
+        </div>
+      </div>
+      <nav>
+  <a href="#home"><i class="fas fa-home"></i> Home</a>
+  <a href="#services"><i class="fas fa-cogs"></i> Services</a>
+  <a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a>
+  <a href="#Happy customers"><i class="fas fa-smile"></i> Customers</a>
+  <a href="#pricing"><i class="fas fa-tags"></i> Pricing</a>
+  <a href="#process"><i class="fas fa-tasks"></i> Process</a>
+  <br>
+  <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+   <a href="https://maps.app.goo.gl/uvaAXRpijn1AcmFV6" target="_blank" rel="noopener noreferrer">
+    <i class="fas fa-map-marker-alt"></i> Location
+  </a>
+</nav>
+
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1> KIMTECH repair shop— fast and affordable</h1>
+        <p class="lead">KimTech specialises in screen replacements, battery swaps, board-level repairs, data recovery and full diagnostics for all major brands.</p>
+        <div class="cta">
+          <button class="btn btn-primary" id="bookBtn">Book a repair</button>
+          <button class="btn btn-ghost" id="quoteBtn">Get a quote</button>
+        </div>
+
+        <div class="services" id="services" style="margin-top:18px">
+          <div class="service" >
+    
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M5 6v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Screen Repairs</h4>
+              <p>Fast same-day replacements for cracked displays.</p>
+            </div>
+          </div>
+
+          <div class="service">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v20" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M5 7h14" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <div>
+              <h4>Battery & Charging</h4>
+              <p>Replace batteries or fix charging ports and power issues.</p>
+            </div>
+          </div>
+
+          <div class="service">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M8 10h8v8H8z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Board Level Repair</h4>
+              <p>Skilled technicians for motherboard & IC faults.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="right-hero">
+        <div class="card">
+       <div style="display:flex; justify-content:space-between; align-items:center;">
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <i class="fas fa-clock" style="color: #f1c40f;"></i>
+    <div>
+      <div class="muted" style="font-size:13px;">Open hours</div>
+      <div style="font-weight:700; color: yellow;">Mon - Sat • 8:00hrs - 19:00hrs</div>
+    </div>
+  </div>
+</div>
+
+<div style="display:flex; justify-content:space-between; align-items:center;">
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <i class="fas fa-phone" style="color: #f1c40f;"></i>
+    <div>
+      <div class="muted" style="font-size:13px;">Call</div>
+      <div style="font-weight:700; color: yellow;">+254 758 826 537</div>
+    </div>
+  </div>
+</div>
+          </div>
+
+          <div class="stats" style="margin-top:12px">
+            <div class="stat">
+              <b id="statCount">1,240</b>
+              <small class="muted">Repairs done</small>
+            </div>
+            <div class="stat">
+              <b>4.9★</b>
+              <small class="muted">Avg rating</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4 style="margin:0 0 8px">Why choose KimTech?</h4>
+          <p class="muted" style="margin:0 0 10px">Free diagnostics • Warranty on parts • Genuine replacement parts</p>
+          <button class="btn btn-primary" id="navPortfolio">See our work</button>
+        </div>
+
+      </aside>
+    </section>
+
+    <section id="portfolio">
+      <h3 style="margin:6px 0 10px">Recent repairs</h3>
+      <div class="portfolio">
+        <div class="project card">
+          <img src="man-is-working-carefully-his-lab-repair-clean-smart-phone-using-syringe-blow-out-all-dust-from-device.jpg" alt="iphone screen replacement">
+          <h5>iPhone X - Screen replacement</h5>
+          <p class="muted">Completed in 1 hour — original OEM glass.</p>
+        </div>
+
+        <div class="project card">
+          <img src="technician-clearing-circuit-board-disassembled-laptop.jpg" alt="laptop repair">
+          <h5>Dell Laptop - SSD upgrade & repair</h5>
+          <p class="muted">Speed boost & data migration completed.</p>
+        </div>
+
+        <div class="project card">
+          <img src="water.jpeg" alt="water damage repair">
+          <h5>Water damage recovery</h5>
+          <p class="muted">Board-level cleaning and diagnostics.</p>
+        </div>
+
+        <div class="project card">
+          <img src="close-up-hands-working-project.jpg" alt="battery replacement">
+          <h5>Battery replacement</h5>
+          <p class="muted">Longer battery life with genuine cells.</p>
+        </div>
+
+        <div class="project card">
+          <img src="loaded-circuit-board.jpg" alt="motherboard repair">
+          <h5>Motherboard repair</h5>
+          <p class="muted">Component-level repair & testing.</p>
+        </div>
+
+        <div class="project card">
+          <img src="data.jpeg" alt="data recovery">
+          <h5>Data recovery</h5>
+          <p class="muted">Recovered photos and documents safely.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="card" style="flex:1">
+        <h3 style="margin:0px">Book a repair</h3>
+        <p class="muted">Fill the form and we'll call to confirm.</p>
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="tel" id="phone" placeholder="Phone number" required />
+        </form>
+        </div>
+    </section>
+
+ 
+  
+
+</head>
+<body>
+
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container content">
+        <div>
+          <span class="badge" aria-label="Fast turnarounds">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg>
+            Same‑day fixes • Honest pricing
+          </span>
+          <h1>Your trusted <em>Phone</em> & <em>Laptop</em> repair partner.</h1>
+                 <p class="lead">KimTech specialises in screen replacements, battery swaps, board-level repairs, data recovery and full diagnostics for all major brands.</p>
+          <p>Cracked screens, weak batteries, liquid damage, slow laptops—we bring devices back to life with quality parts and a 30‑day warranty.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#contact">Book a Repair</a>
+            <a class="btn btn-ghost" href="#services">See Services</a>
+          </div>
+        </div>
+        <div class="device-card" aria-hidden="true">
+          <div class="grid">
+            <div class="device">
+              <h3>Phone Repair</h3>
+              <p class="muted">Screens • Batteries • Cameras • Charging ports</p>
+              <div>
+                <span class="chip">iPhone</span>
+                <span class="chip">Samsung</span>
+                <span class="chip">Huawei</span>
+                <span class="chip">Xiaomi</span>
+              </div>
+            </div>
+            <div class="device">
+              <h3>Laptop Repair</h3>
+              <p class="muted">Keyboards • SSD Upgrades • Fans • OS tune‑ups</p>
+              <div>
+                <span class="chip">Windows</span>
+                <span class="chip">macOS</span>
+                <span class="chip">Linux</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">Services</h2>
+        <p class="muted">Transparent quotes before we touch your device.</p>
+        <div class="cards" role="list">
+          <article class="card" role="listitem">
+            <span class="ribbon">Popular</span>
+            <h3>Phone Repair</h3>
+            <p>Fast fixes for cracked screens, dying batteries, speaker & mic issues, and charging problems. OEM‑grade parts with warranty.</p>
+            <p class="price">From Ksh2,500</p>
+            <div class="cta"><a class="btn btn-primary" href="#contact">Get a phone quote</a></div>
+          </article>
+          <article class="card" role="listitem">
+            <h3>Laptop Repair</h3>
+            <p>Diagnostics, keyboard replacements, SSD/RAM upgrades, thermal servicing, and OS reinstall/tune‑ups for Windows, macOS, and Linux.</p>
+            <p class="price">From ksh1,000</p>
+            <div class="cta"><a class="btn btn-primary" href="#contact">Get a laptop quote</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" aria-label="Pricing plans">
+      <div class="container">
+        <h2 class="section-title">Sample Pricing</h2>
+        <p class="muted">Final pricing depends on model and parts availability. You’ll approve everything first.</p>
+        <div class="pricing">
+          <div class="plan">
+            <h4>Phone Essentials</h4>
+            <p class="amount">Ksh200-Ksh5,000</p>
+            <ul>
+              <li>✔ Screen & back glass</li>
+              <li>✔ Battery replacement</li>
+              <li>✔ Charging port & speakers</li>
+              <li>✔ Camera & buttons</li>
+            </ul>
+            <a class="btn btn-ghost" href="#contact">Ask for model quote</a>
+          </div>
+          <div class="plan">
+            <h4>Laptop Tune‑Up</h4>
+            <p class="amount">ksh2500-ksh5000</p>
+            <ul>
+              <li>✔ Deep diagnostics</li>
+              <li>✔ Fan cleaning & thermal paste</li>
+              <li>✔ Malware cleanup</li>
+              <li>✔ OS update & drivers</li>
+            </ul>
+            <a class="btn btn-ghost" href="#contact">Schedule service</a>
+          </div>
+          <div class="plan">
+            <h4>Upgrade Pack</h4>
+            <p class="amount">ksh200-ksh3500</p>
+            <ul>
+              <li>✔ SSD upgrade & data clone</li>
+              <li>✔ RAM upgrade (if supported)</li>
+              <li>✔ Performance optimization</li>
+              <li>✔ 30‑day warranty</li>
+            </ul>
+            <a class="btn btn-ghost" href="#contact">Check compatibility</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process">
+      <div class="container">
+        <h2 class="section-title">How it works</h2>
+        <div class="steps" role="list">
+          <div class="step" role="listitem">
+            <div class="num">1</div>
+            <h4>Free quote</h4>
+            <p class="muted">Tell us your device model and issue. We estimate parts & time.</p>
+          </div>
+          <div class="step" role="listitem">
+            <div class="num">2</div>
+            <h4>Drop‑off / Pick‑up</h4>
+            <p class="muted">Visit our shop or request courier pick‑up (local areas).</p>
+          </div>
+          <div class="step" role="listitem">
+            <div class="num">3</div>
+            <h4>Repair & updates</h4>
+            <p class="muted">We keep you posted. No surprise charges—ever.</p>
+          </div>
+          <div class="step" role="listitem">
+            <div class="num">4</div>
+            <h4>Quality check</h4>
+            <p class="muted">Rigorous testing and 30‑day parts & labor warranty.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section aria-label="Customer testimonials">
+      <div class="container">
+        <h2 class="section-title">Happy customers</h2>
+        <div class="testimonials">
+  <blockquote class="quote">
+    <img src="technician-clearing-circuit-board-disassembled-laptop.jpg" alt="Sarah K." class="testimonial-photo" />
+    “Cracked my iPhone screen in the morning and had it back by lunch. Looks brand new!” — <strong>Sarah K.</strong>
+  </blockquote>
+  <blockquote class="quote">
+    <img src="young-handsome-man-posing.jpg" alt="David M." class="testimonial-photo" />
+    “They revived my water‑damaged laptop and saved my thesis. Lifesavers.” — <strong>David M.</strong>
+  </blockquote>
+  <blockquote class="quote">
+    <img src="young-handsome-man-posing.jpg" alt="young-handsome-man-posing.jpg" class="testimonial-photo" />
+    “Transparent pricing and super friendly. Highly recommended.” — <strong>Rita O.</strong>
+  </blockquote>
+</div>
+
+      </div>
+    </section>
+
+    <!-- FAQ (CSS only) -->
+    <section aria-label="Frequently asked questions">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <details>
+          <summary>How long do most repairs take?</summary>
+          <p class="muted">Many phone repairs are same‑day (1–3 hours). Laptops range from same‑day tune‑ups to 2–4 days for parts‑dependent jobs.</p>
+        </details>
+        <details>
+          <summary>Do you use original parts?</summary>
+          <p class="muted">We source OEM or OEM‑grade parts and back them with a 30‑day warranty.</p>
+        </details>
+        <details>
+          <summary>Will I lose my data?</summary>
+          <p class="muted">For most repairs, your data stays intact. We still recommend a backup; we also offer safe data backup & recovery.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-label="Contact & booking">
+      <div class="container contact">
+        <div class="panel">
+          <h2 class="section-title">Get a free quote</h2>
+          <form id="repairForm" action="https://formspree.io/f/mzzjdaza" method="POST">
+             <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Your full name" required>
+
+            <label for="contact" >Contact</label>
+            <input id="tel" name="contact" placeholder="telephone no" required>
+
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="you@example.com" required>
+
+            <label for="device">Device & model</label>
+            <input id="device" name="device" placeholder="iPhone 13, Dell XPS 13, etc." required>
+
+            <label for="issue">Describe the issue</label>
+            <textarea id="issue" name="issue" placeholder="Screen cracked, won’t charge, overheating…" required></textarea>
+            <!-- Optional: redirect after form submission -->
+            <input type="hidden" name="_next" value="thank-you.html">
+
+              <!-- Optional: honeypot to prevent spam -->
+            <input type="text" name="_gotcha" style="display:none">
+            <p id="statusMsg"></p>
+    <div class="cta" style="margin-top:.8rem">
+              <button class="btn btn-primary" type="submit">Send request</button>
+              <button class="btn btn-ghost" type="reset">Reset</button>
+            </div>
+          </form>
+        </div>
+        <div class="panel">
+          <h2 class="section-title">Contact</h2>
+          <p class="muted">Prefer WhatsApp or a quick call? We’re flexible.</p>
+          <ul style="list-style:none; padding:0; margin:.6rem 0; display:grid; gap:.4rem">
+  <li><i class="fas fa-map-marker-alt"></i> Eldoret roady kings mall</li>
+  <li><i class="fas fa-phone"></i> (0758826537)</li>
+  <li><i class="fas fa-envelope"></i> kimanypete7@gmail.com</li>
+  <li><i class="fas fa-clock"></i> Mon–Sat, 8:00–18:00</li>
+</ul>
+
+          <div class="device" aria-hidden="true">
+            <h3>Brands we service</h3>
+           <div>
+  <span class="chip"><i class="fab fa-apple"></i> Apple</span>
+  <span class="chip"><i class="fab fa-samsung"></i> Samsung</span>
+  <span class="chip"><i class="fab fa-windows"></i> Dell</span>
+  <span class="chip"><i class="fab fa-hp"></i> HP</span>
+  <span class="chip"><i class="fab fa-windows"></i> Lenovo</span>
+  <span class="chip"><i class="fab fa-asus"></i> ASUS</span>
+  <span class="chip"><i class="fab fa-acer"></i> Acer</span>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+</body>
+  <script>
+    // Only for year display; safe to remove if you want 100% CSS/HTML only
+    document.getElementById('year').textContent = new Date().getFullYear();
+  document.addEventListener('DOMContentLoaded', () => {
+    const bookBtn = document.getElementById('bookBtn');
+    const quoteBtn = document.getElementById('quoteBtn');
+    const contactSection = document.getElementById('contact');
+
+    // Scroll smoothly to the contact form
+    function scrollToContact() {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    if (bookBtn) {
+      bookBtn.addEventListener('click', scrollToContact);
+    }
+
+    if (quoteBtn) {
+      quoteBtn.addEventListener('click', scrollToContact);
+    }
+
+    // Optional: Add basic form validation
+    const contactForm = document.getElementById('contactForm');
+    contactForm?.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      if (!name || !phone) {
+        alert('Please enter both your name and phone number.');
+        return;
+      }
+
+      alert(`Thanks ${name}! We'll contact you at ${phone} soon.`);
+      contactForm.reset();
+    });
+  });
+
+  const form = document.getElementById('repairForm');
+  const statusMsg = document.getElementById('statusMsg');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    statusMsg.textContent = "Submitting...";
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        statusMsg.textContent = "Thank you! Your request has been submitted.";
+        form.reset();
+      } else {
+        statusMsg.textContent = "Oops! Something went wrong.";
+      }
+    } catch (error) {
+      statusMsg.textContent = "Error submitting form. Please try again later.";
+    }
+  });
+
+
+
+  </script>
+<footer>
+  <div class="footer-container">
+    <p>© <span id="year"></span> FixIt Pro. All rights reserved.</p>
+    <p>Made with ❤️ & quality parts.</p>
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+</html>
