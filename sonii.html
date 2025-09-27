@@ -6,6 +6,8 @@
   <title>KIMTECH— Phone & Laptop Repair</title>
   <meta name="description" content="KIMTECH phone and laptop repair. Fast diagnostics, screen replacements, battery swaps, data recovery, and more.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <style>
     /* ========= CSS RESET ========= */
     *,*::before,*::after{box-sizing:border-box}
@@ -60,6 +62,25 @@
     nav a:hover{color:var(--text)}
 
     /* ========= HERO ========= */
+    .hero {
+  .hero {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: white;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* dark overlay */
+  z-index: -1;
+}
+
+}
     .hero{position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 10% -10%, rgba(124,58,237,.35), transparent 60%),
                                   radial-gradient(1100px 600px at 110% -10%, rgba(6,182,212,.35), transparent 60%)}
     .hero .content{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:4.5rem 0}
@@ -122,6 +143,50 @@
 
     /* Footer */
     footer{border-top:1px solid rgba(148,163,184,.15);padding:2rem 0;color:#94a3b8}
+footer {
+  background-color: #203458;
+  color: #eee;
+  padding: 1rem 2rem;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-container p {
+  margin: 0.3rem 0;
+}
+
+.social-icons a {
+  color: #eee;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: yellow; /* Accent color */
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .social-icons {
+    margin-top: 0.5rem;
+  }
+}
 
     /* ========= RESPONSIVE ========= */
     @media (max-width: 980px){
@@ -174,6 +239,20 @@
     input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:10px;color:inherit}
 
     /*footer{margin-top:28px;text-align:center;color:var(--muted)}*/
+.testimonial-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* circular photos */
+  object-fit: cover;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.quote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
 
     /* responsive */
     @media (max-width:900px){
@@ -202,8 +281,7 @@
     <header>
       <div class="brand">
         <div class="logo" aria-hidden>
-          <!-- simple phone+laptop icon -->
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="36" height="48" rx="4" fill="white" opacity="0.95"/><rect x="44" y="14" width="14" height="28" rx="2" fill="white" opacity="0.95"/></svg>
+  <img src="logo.png" alt="Company Logo" style="height: 60px;"><rect x="8" y="10" width="45" height="50" rx="4" fill="white" opacity="0.95"/><rect x="44" y="14" width="14" height="28" rx="2" fill="white" opacity="0.95"/></svg>
         </div>
         <div>
           <div style="font-weight:700"></div>
@@ -211,14 +289,19 @@
         </div>
       </div>
       <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#Happy customers">Customers</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <a href="#home"><i class="fas fa-home"></i> Home</a>
+  <a href="#services"><i class="fas fa-cogs"></i> Services</a>
+  <a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a>
+  <a href="#Happy customers"><i class="fas fa-smile"></i> Customers</a>
+  <a href="#pricing"><i class="fas fa-tags"></i> Pricing</a>
+  <a href="#process"><i class="fas fa-tasks"></i> Process</a>
+  <br>
+  <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+   <a href="https://maps.app.goo.gl/uvaAXRpijn1AcmFV6" target="_blank" rel="noopener noreferrer">
+    <i class="fas fa-map-marker-alt"></i> Location
+  </a>
+</nav>
+
     </header>
 
     <section class="hero">
@@ -261,15 +344,25 @@
 
       <aside class="right-hero">
         <div class="card">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <div class="muted" style="font-size:13px" >Open hours</div>
-              <div style="font-weight:700" style="color: yellow ">Mon - Sat • 8:00hrs - 19:00hrs</div>
-            </div>
-            <div>
-              <div class="muted" style="font-size:13px">Call</div>
-              <div style="font-weight:700" style="color :yellow" >+254 758 826 537</div>
-            </div>
+       <div style="display:flex; justify-content:space-between; align-items:center;">
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <i class="fas fa-clock" style="color: #f1c40f;"></i>
+    <div>
+      <div class="muted" style="font-size:13px;">Open hours</div>
+      <div style="font-weight:700; color: yellow;">Mon - Sat • 8:00hrs - 19:00hrs</div>
+    </div>
+  </div>
+</div>
+
+<div style="display:flex; justify-content:space-between; align-items:center;">
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <i class="fas fa-phone" style="color: #f1c40f;"></i>
+    <div>
+      <div class="muted" style="font-size:13px;">Call</div>
+      <div style="font-weight:700; color: yellow;">+254 758 826 537</div>
+    </div>
+  </div>
+</div>
           </div>
 
           <div class="stats" style="margin-top:12px">
@@ -495,10 +588,20 @@
       <div class="container">
         <h2 class="section-title">Happy customers</h2>
         <div class="testimonials">
-          <blockquote class="quote">“Cracked my iPhone screen in the morning and had it back by lunch. Looks brand new!” — <strong>Sarah K.</strong></blockquote>
-          <blockquote class="quote">“They revived my water‑damaged laptop and saved my thesis. Lifesavers.” — <strong>David M.</strong></blockquote>
-          <blockquote class="quote">“Transparent pricing and super friendly. Highly recommended.” — <strong>Rita O.</strong></blockquote>
-        </div>
+  <blockquote class="quote">
+    <img src="technician-clearing-circuit-board-disassembled-laptop.jpg" alt="Sarah K." class="testimonial-photo" />
+    “Cracked my iPhone screen in the morning and had it back by lunch. Looks brand new!” — <strong>Sarah K.</strong>
+  </blockquote>
+  <blockquote class="quote">
+    <img src="young-handsome-man-posing.jpg" alt="David M." class="testimonial-photo" />
+    “They revived my water‑damaged laptop and saved my thesis. Lifesavers.” — <strong>David M.</strong>
+  </blockquote>
+  <blockquote class="quote">
+    <img src="young-handsome-man-posing.jpg" alt="young-handsome-man-posing.jpg" class="testimonial-photo" />
+    “Transparent pricing and super friendly. Highly recommended.” — <strong>Rita O.</strong>
+  </blockquote>
+</div>
+
       </div>
     </section>
 
@@ -526,8 +629,8 @@
       <div class="container contact">
         <div class="panel">
           <h2 class="section-title">Get a free quote</h2>
-          <form action="#" method="post" onsubmit="return false" aria-label="Quote form">
-            <label for="name">Name</label>
+          <form id="repairForm" action="https://formspree.io/f/xpwyqrwd" method="POST">
+             <label for="name">Name</label>
             <input id="name" name="name" placeholder="Your full name" required>
 
             <label for="email">Email</label>
@@ -538,9 +641,14 @@
 
             <label for="issue">Describe the issue</label>
             <textarea id="issue" name="issue" placeholder="Screen cracked, won’t charge, overheating…" required></textarea>
+            <!-- Optional: redirect after form submission -->
+            <input type="hidden" name="_next" value="thank-you.html">
 
-            <div class="cta" style="margin-top:.8rem">
-              <button class="btn btn-primary" type="submit">Request quote</button>
+              <!-- Optional: honeypot to prevent spam -->
+            <input type="text" name="_gotcha" style="display:none">
+            <p id="statusMsg"></p>
+    <div class="cta" style="margin-top:.8rem">
+              <button class="btn btn-primary" type="submit">Send request</button>
               <button class="btn btn-ghost" type="reset">Reset</button>
             </div>
           </form>
@@ -548,24 +656,25 @@
         <div class="panel">
           <h2 class="section-title">Contact</h2>
           <p class="muted">Prefer WhatsApp or a quick call? We’re flexible.</p>
-          <ul style="list-style:none;padding:0;margin:.6rem 0;display:grid;gap:.4rem">
-            <li>Eldoret roady kings mall</li>
-            <li>📞 (0758826537)</li>
-            <li>✉️ kimtech@mail.com
-            </li>
-            <li>🕒 Mon–Sat, 8:00–18:00</li>
-          </ul>
+          <ul style="list-style:none; padding:0; margin:.6rem 0; display:grid; gap:.4rem">
+  <li><i class="fas fa-map-marker-alt"></i> Eldoret roady kings mall</li>
+  <li><i class="fas fa-phone"></i> (0758826537)</li>
+  <li><i class="fas fa-envelope"></i> kimtech@mail.com</li>
+  <li><i class="fas fa-clock"></i> Mon–Sat, 8:00–18:00</li>
+</ul>
+
           <div class="device" aria-hidden="true">
             <h3>Brands we service</h3>
-            <div>
-              <span class="chip">Apple</span>
-              <span class="chip">Samsung</span>
-              <span class="chip">Dell</span>
-              <span class="chip">HP</span>
-              <span class="chip">Lenovo</span>
-              <span class="chip">ASUS</span>
-              <span class="chip">Acer</span>
-            </div>
+           <div>
+  <span class="chip"><i class="fab fa-apple"></i> Apple</span>
+  <span class="chip"><i class="fab fa-samsung"></i> Samsung</span>
+  <span class="chip"><i class="fab fa-windows"></i> Dell</span>
+  <span class="chip"><i class="fab fa-hp"></i> HP</span>
+  <span class="chip"><i class="fab fa-windows"></i> Lenovo</span>
+  <span class="chip"><i class="fab fa-asus"></i> ASUS</span>
+  <span class="chip"><i class="fab fa-acer"></i> Acer</span>
+</div>
+
           </div>
         </div>
       </div>
@@ -577,13 +686,82 @@
   <script>
     // Only for year display; safe to remove if you want 100% CSS/HTML only
     document.getElementById('year').textContent = new Date().getFullYear();
+  document.addEventListener('DOMContentLoaded', () => {
+    const bookBtn = document.getElementById('bookBtn');
+    const quoteBtn = document.getElementById('quoteBtn');
+    const contactSection = document.getElementById('contact');
+
+    // Scroll smoothly to the contact form
+    function scrollToContact() {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    if (bookBtn) {
+      bookBtn.addEventListener('click', scrollToContact);
+    }
+
+    if (quoteBtn) {
+      quoteBtn.addEventListener('click', scrollToContact);
+    }
+
+    // Optional: Add basic form validation
+    const contactForm = document.getElementById('contactForm');
+    contactForm?.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      if (!name || !phone) {
+        alert('Please enter both your name and phone number.');
+        return;
+      }
+
+      alert(`Thanks ${name}! We'll contact you at ${phone} soon.`);
+      contactForm.reset();
+    });
+  });
+
+  const form = document.getElementById('repairForm');
+  const statusMsg = document.getElementById('statusMsg');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    statusMsg.textContent = "Submitting...";
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        statusMsg.textContent = "Thank you! Your request has been submitted.";
+        form.reset();
+      } else {
+        statusMsg.textContent = "Oops! Something went wrong.";
+      }
+    } catch (error) {
+      statusMsg.textContent = "Error submitting form. Please try again later.";
+    }
+  });
+
+
+
   </script>
-
-
 <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap; ">
-      <p>© <span id="year"></span> FixIt Pro. All rights reserved.</p>
-      <p>Made with ❤️ & quality parts.</p>
+  <div class="footer-container">
+    <p>© <span id="year"></span> FixIt Pro. All rights reserved.</p>
+    <p>Made with ❤️ & quality parts.</p>
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
     </div>
-  </footer>
+  </div>
+</footer>
 </html>
